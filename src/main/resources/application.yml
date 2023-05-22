@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop #create: 어플리케이션을 실행하면 테이블을 다 지우고 다시 생성!
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100 # 이거 덕분에 N+1문제를 어느정도 해결
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.orm.jdbc.bind: trace
